@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Ji
 
 public class V2exHTMLParser {
@@ -16,14 +17,29 @@ public class V2exHTMLParser {
             .map{Ji(htmlData: $0)}
             .filter{$0 != nil}
             .flatMap{Observable
-                .zip($0!.onceToken, $0!.nameKey, $0!.passwordKey)
+                .zip($0!.rx.onceToken, $0!.rx.nameKey, $0!.rx.passwordKey)
                 {($0, $1, $2)}
         }
     }
 }
 
-typealias LoginParser = Ji
-extension LoginParser {
+extension Reactive where Base: Ji {
+    var onceToken: Observable<String> {
+        return base.handleInputAttributesWithFilter(filter: { $0["name"] == "once" },
+                                                    valueKey: "value")
+    }
+    
+    var nameKey: Observable<String> {
+        return base.handleInputAttributesWithFilter(filter: { $0["type"] == "text" },
+                                                    valueKey: "name")
+    }
+    
+    var passwordKey: Observable<String> {
+        return base.handleInputAttributesWithFilter(filter: { $0["type"] == "password" },
+                                                    valueKey: "name")
+    }
+}
+extension Ji : ReactiveCompatible {
     func handleInputAttributesWithFilter(filter:([String : String]) -> Bool, valueKey: String) -> Observable<String> {
         let descendant = self.rootNode?
             .descendantsWithName("input")
@@ -38,18 +54,4 @@ extension LoginParser {
         return Observable.of(value)
     }
     
-    public var onceToken: Observable<String> {
-        return handleInputAttributesWithFilter(filter: { $0["name"] == "once" },
-                                                          valueKey: "value")
-    }
-    
-    public var nameKey: Observable<String> {
-        return handleInputAttributesWithFilter(filter: { $0["type"] == "text" },
-                                                          valueKey: "name")
-    }
-    
-    public var passwordKey: Observable<String> {
-        return handleInputAttributesWithFilter(filter: { $0["type"] == "password" },
-                                                          valueKey: "name")
-    }
 }

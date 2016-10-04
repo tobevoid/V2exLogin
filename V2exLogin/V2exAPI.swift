@@ -40,6 +40,8 @@ extension V2ex : TargetType {
             fallthrough
         case .Login(_):
             return "signin"
+        case .HotTopics:
+            return ""
         default:
             return "laosiji"
         }
