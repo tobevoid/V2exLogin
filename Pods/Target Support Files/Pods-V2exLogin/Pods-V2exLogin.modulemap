@@ -1,0 +1,6 @@
+framework module Pods_V2exLogin {
+  umbrella header "Pods-V2exLogin-umbrella.h"
+
+  export *
+  module * { export * }
+}

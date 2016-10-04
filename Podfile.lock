@@ -1,0 +1,51 @@
+PODS:
+  - Alamofire (4.0.1)
+  - Ji (2.0.0):
+    - Ji/Ji (= 2.0.0)
+  - Ji/Ji (2.0.0):
+    - Ji/Ji-libxml
+  - Ji/Ji-libxml (2.0.0)
+  - Locksmith (3.0.0)
+  - Moya (7.0.0):
+    - Moya/Core (= 7.0.0)
+  - Moya/Core (7.0.0):
+    - Alamofire (~> 4.0.0)
+    - Result
+  - Moya/RxSwift (7.0.0):
+    - Moya/Core
+    - RxSwift (= 3.0.0-beta.1)
+  - Result (3.0.0)
+  - RxCocoa (3.0.0-beta.1):
+    - RxSwift (~> 3.0.0-beta.1)
+  - RxSwift (3.0.0-beta.1)
+
+DEPENDENCIES:
+  - Ji
+  - Locksmith (~> 3.0.0)
+  - Moya (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
+  - Moya/RxSwift (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
+  - RxCocoa (~> 3.0.0-beta.1)
+  - RxSwift (~> 3.0.0-beta.1)
+
+EXTERNAL SOURCES:
+  Moya:
+    :branch: swift-3.0
+    :git: https://github.com/Moya/Moya
+
+CHECKOUT OPTIONS:
+  Moya:
+    :commit: 7c41718d1fe2a1e8616264c3361154d9df566e97
+    :git: https://github.com/Moya/Moya
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Ji: 79e11b5256ee809f9f7e51dc7de2059e35adf7a6
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  Moya: 24236189772d63640d9d2f7c819157f3bc947420
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  RxCocoa: 8cecf331302b8ae5381bbab1bccba4ede2eae6a8
+  RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
+
+PODFILE CHECKSUM: ae2f179405cdb2090f9fbfa4ced48966621fc2cc
+
+COCOAPODS: 1.0.1
