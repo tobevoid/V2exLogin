@@ -25,22 +25,22 @@ public class V2exHTMLParser {
 
 extension Reactive where Base: Ji {
     var onceToken: Observable<String> {
-        return base.handleInputAttributesWithFilter(filter: { $0["name"] == "once" },
+        return base.handleInputAttributesWithFilter({ $0["name"] == "once" },
                                                     valueKey: "value")
     }
     
     var nameKey: Observable<String> {
-        return base.handleInputAttributesWithFilter(filter: { $0["type"] == "text" },
+        return base.handleInputAttributesWithFilter({ $0["type"] == "text" },
                                                     valueKey: "name")
     }
     
     var passwordKey: Observable<String> {
-        return base.handleInputAttributesWithFilter(filter: { $0["type"] == "password" },
+        return base.handleInputAttributesWithFilter({ $0["type"] == "password" },
                                                     valueKey: "name")
     }
 }
 extension Ji : ReactiveCompatible {
-    func handleInputAttributesWithFilter(filter:([String : String]) -> Bool, valueKey: String) -> Observable<String> {
+    func handleInputAttributesWithFilter(_ filter:([String : String]) -> Bool, valueKey: String) -> Observable<String> {
         let descendant = self.rootNode?
             .descendantsWithName("input")
             .map{$0.attributes}
@@ -53,5 +53,4 @@ extension Ji : ReactiveCompatible {
         
         return Observable.of(value)
     }
-    
 }

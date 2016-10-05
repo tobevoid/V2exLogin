@@ -17,14 +17,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.loginWithUsername("tripleCC", password: "chixi13506621125")
+        
+        manager.account = V2exAccount(username: "kyz001", password: "chixi13506621125")
+        manager.login()
             .subscribe(onNext: {
                 print($0)
                 }, onError: {
                     print($0)
             })
             .addDisposableTo(disposeBag)
-
     }
 
     override func didReceiveMemoryWarning() {

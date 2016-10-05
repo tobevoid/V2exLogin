@@ -11,11 +11,7 @@ import Locksmith
 
 fileprivate let V2exAccountUsernameKey = "V2exAccountUsernameKey"
 
-struct V2exAccount:
-    ReadableSecureStorable,
-    CreateableSecureStorable,
-    DeleteableSecureStorable,
-GenericPasswordSecureStorable {
+struct V2exAccount: ReadableSecureStorable, CreateableSecureStorable, DeleteableSecureStorable, GenericPasswordSecureStorable{
     let username: String
     let password: String
     
@@ -28,6 +24,14 @@ GenericPasswordSecureStorable {
     init(username: String, password: String = "") {
         self.username = username
         self.password = password
+    }
+}
+
+extension V2exAccount: Equatable {
+    public static func ==(lhs: V2exAccount, rhs: V2exAccount) -> Bool {
+        return lhs.username == rhs.username &&
+        lhs.password == rhs.password &&
+        lhs.service == rhs.service
     }
 }
 

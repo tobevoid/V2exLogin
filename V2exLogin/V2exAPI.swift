@@ -9,9 +9,9 @@
 import Foundation
 import Moya
 
-let V2exProvider = RxMoyaProvider<V2ex>(manager: manager())
+let V2exProvider = RxMoyaProvider<V2ex>(manager: customManager())
 
-func manager() -> Manager {
+fileprivate func customManager() -> Manager {
     var defaultHTTPHeaders = Manager.defaultHTTPHeaders
     defaultHTTPHeaders["Referer"] = "https://v2ex.com/signin"
     
@@ -28,28 +28,29 @@ public enum V2ex {
     case Login(params: [String : String])
     case HotTopics
     case LatestTopics
-    case ShowNodes
-    case ShowMembers
+    case ShowNodes(name: String)
+    case ShowMembers(username: String?, id: String?)
 }
 
 extension V2ex : TargetType {
     public var baseURL: URL { return URL(string: "https://www.v2ex.com/")! }
     public var path: String {
         switch self {
-        case .LoginPre:
-            fallthrough
+        case .LoginPre: fallthrough
         case .Login(_):
             return "signin"
         case .HotTopics:
-            return ""
-        default:
-            return "laosiji"
+            return "api/topics/hot.json"
+        case .LatestTopics:
+            return "api/topics/latest.json"
+        case .ShowNodes:
+            return "api/nodes/show.json"
+        case .ShowMembers:
+            return "api/members/show.json"
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .LoginPre:
-            return .GET
         case .Login(_):
             return .POST
         default:
@@ -60,6 +61,11 @@ extension V2ex : TargetType {
         switch self {
         case .Login(let params):
             return params
+        case .ShowNodes(let name):
+            return ["name" : name]
+        case .ShowMembers(let username, let id):
+            return username != nil ? ["username" : username!] :
+            id != nil ? ["id" : id] : nil
         default:
             return nil
         }

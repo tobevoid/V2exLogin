@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.0.1)
+  - FDFullscreenPopGesture (1.1)
   - Ji (2.0.0):
     - Ji/Ji (= 2.0.0)
   - Ji/Ji (2.0.0):
     - Ji/Ji-libxml
   - Ji/Ji-libxml (2.0.0)
   - Locksmith (3.0.0)
+  - MonkeyKing (1.0.0)
   - Moya (7.0.0):
     - Moya/Core (= 7.0.0)
   - Moya/Core (7.0.0):
@@ -18,14 +20,28 @@ PODS:
   - RxCocoa (3.0.0-beta.1):
     - RxSwift (~> 3.0.0-beta.1)
   - RxSwift (3.0.0-beta.1)
+  - SnapKit (3.0.1)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYText (1.0.7)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
-  - Ji
+  - FDFullscreenPopGesture (~> 1.1)
+  - Ji (~> 2.0.0)
   - Locksmith (~> 3.0.0)
+  - MonkeyKing (~> 1.0.0)
   - Moya (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
   - Moya/RxSwift (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
   - RxCocoa (~> 3.0.0-beta.1)
   - RxSwift (~> 3.0.0-beta.1)
+  - SnapKit (~> 3.0.1)
+  - YYText (~> 1.0.7)
+  - YYWebImage (~> 1.0.5)
 
 EXTERNAL SOURCES:
   Moya:
@@ -39,13 +55,20 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Ji: 79e11b5256ee809f9f7e51dc7de2059e35adf7a6
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  MonkeyKing: 8d1f0550cc535d5a6f97f4ebcec068d95c9ba00f
   Moya: 24236189772d63640d9d2f7c819157f3bc947420
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   RxCocoa: 8cecf331302b8ae5381bbab1bccba4ede2eae6a8
   RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: ae2f179405cdb2090f9fbfa4ced48966621fc2cc
+PODFILE CHECKSUM: 7aa2c6b62e3f5603556904d11f9fd35df64d298a
 
 COCOAPODS: 1.0.1

@@ -11,6 +11,8 @@ import RxSwift
 import Moya
 
 public class V2exLoginManager {
+    var account: V2exAccount?
+    
     private func paramsWithUsername(_ username: String, password: String) -> Observable<[String : String]> {
         return V2exProvider
             .request(.LoginPre)
@@ -25,7 +27,7 @@ public class V2exLoginManager {
                 })}
     }
     
-    public func loginWithUsername(_ username: String, password: String) -> Observable<Response> {
+    private func loginWithUsername(_ username: String, password: String) -> Observable<Response> {
         return paramsWithUsername(username, password: password)
             .retry(1)
             .flatMap {
@@ -33,11 +35,16 @@ public class V2exLoginManager {
                     .request(.Login(params: $0))
                     .shareReplay(1)
             }
+    }
+    
+    public func login() ->Observable<Response> {
+        guard let account = account else { return Observable.empty() }
+        return loginWithUsername(account.username, password: account.password)
             .do(onNext: {
-                if $0.statusCode == 200 {
-                    V2exAppContext.sharedInstance.account = V2exAccount(username: username, password: password)
-                    V2exAppContext.sharedInstance.saveAccount()
-                }
-            })
+            if $0.statusCode == 200 {
+                V2exAppContext.sharedInstance.account = account
+                V2exAppContext.sharedInstance.saveAccount()
+            }
+        })
     }
 }
