@@ -37,10 +37,13 @@ extension V2exAccount: Equatable {
 
 extension V2exAccount {
     static func readCurrentV2exAccount() -> V2exAccount? {
-        return UserDefaults.standard.value(forKeyPath: V2exAccountUsernameKey)
+        let account = UserDefaults.standard.value(forKeyPath: V2exAccountUsernameKey)
             .flatMap{ $0 as? String }
             .map{ ($0, V2exAccount(username: $0).readFromSecureStore()?.data?["password"])}
             .map{ V2exAccount(username: $0, password: $1 as? String ?? "") }
+        
+        guard account?.password.characters.count != 0 else { return nil }
+        return account
     }
     
     func save() {

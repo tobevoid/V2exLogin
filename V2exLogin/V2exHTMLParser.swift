@@ -17,29 +17,33 @@ public class V2exHTMLParser {
             .map{Ji(htmlData: $0)}
             .filter{$0 != nil}
             .flatMap{Observable
-                .zip($0!.rx.onceToken, $0!.rx.nameKey, $0!.rx.passwordKey)
+                .zip($0!.onceToken, $0!.nameKey, $0!.passwordKey)
                 {($0, $1, $2)}
         }
     }
 }
 
-extension Reactive where Base: Ji {
+extension Ji {
     var onceToken: Observable<String> {
-        return base.handleInputAttributesWithFilter({ $0["name"] == "once" },
+        return handleInputAttributesWithFilter({ $0["name"] == "once" },
                                                     valueKey: "value")
     }
     
     var nameKey: Observable<String> {
-        return base.handleInputAttributesWithFilter({ $0["type"] == "text" },
+        return handleInputAttributesWithFilter({ $0["type"] == "text" },
                                                     valueKey: "name")
     }
     
     var passwordKey: Observable<String> {
-        return base.handleInputAttributesWithFilter({ $0["type"] == "password" },
+        return handleInputAttributesWithFilter({ $0["type"] == "password" },
                                                     valueKey: "name")
     }
 }
-extension Ji : ReactiveCompatible {
+
+// confirm to ReactiveCompatible would cause compile error when building V2exLoginTest, but V2exLogin not. 
+// Having no idea about that.
+// Redundant conformance of 'Ji' to protocol 'ReactiveCompatible'
+extension Ji {
     func handleInputAttributesWithFilter(_ filter:([String : String]) -> Bool, valueKey: String) -> Observable<String> {
         let descendant = self.rootNode?
             .descendantsWithName("input")

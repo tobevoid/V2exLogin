@@ -40,8 +40,7 @@ class V2exLoginTests: XCTestCase {
         account.save()
         let savedAccount = V2exAccount.readCurrentV2exAccount()
         XCTAssertNotNil(savedAccount)
-        guard let _savedAccount = savedAccount else { return }
-        XCTAssertEqual(_savedAccount, account)
+        XCTAssertEqual(savedAccount!, account)
         
         account.delete()
         XCTAssertNil(V2exAccount.readCurrentV2exAccount())
@@ -53,7 +52,7 @@ class V2exLoginTests: XCTestCase {
         let passwordKey = "d09bcdebb3b0e6e6f252a3008f907ac76ba956a795023651148980cf0109fa78"
         let loginPreHTML = "<?xml version='1.0' encoding='UTF-8'?><note><heading>Reminder</heading><body><input type='hidden' value='\(once)' name='once'><input type='password' class='sl' name='\(passwordKey)' value='' autocorrect='off' spellcheck='false' autocapitalize='off'><input type='text' class='sl' name='\(nameKey)' value='' autofocus='autofocus' autocorrect='off' spellcheck='false' autocapitalize='off'></body></note>"
         
-        let _ = V2exHTMLParser.loginInfoWithHTMLData(data: loginPreHTML.data(using: String.Encoding.utf8)).subscribe(onNext: { (_once, _nameKey, _passwordKey) in
+        let _ = V2exHTMLParser.loginInfoWithHTMLData(data: loginPreHTML.data(using: String.Encoding.utf8)!).subscribe(onNext: { (_once, _nameKey, _passwordKey) in
             XCTAssertEqual(once, _once)
             XCTAssertEqual(nameKey, _nameKey)
             XCTAssertEqual(passwordKey, _passwordKey)
@@ -66,7 +65,7 @@ class V2exLoginTests: XCTestCase {
         let loginManager = V2exLoginManager()
         
         loginManager.account = V2exAccount(username: "kyz001", password: "chixi13506621125")
-        loginManager.login()
+        let _ = loginManager.login()
             .subscribe(onNext: { (response) in
                 XCTAssertEqual(response.statusCode, 200)
                 }, onError: { (error) in

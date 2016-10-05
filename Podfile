@@ -3,8 +3,8 @@ inhibit_all_warnings!
 use_frameworks!
 
 def pods
- 	pod 'RxSwift', '~> 3.0.0-beta.1'
-   	pod 'RxCocoa', '~> 3.0.0-beta.1'
+ 	pod 'RxSwift', '3.0.0-beta.1'
+   	pod 'RxCocoa', '3.0.0-beta.1'
     pod 'Moya', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
   	pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
     pod 'Locksmith', '~> 3.0.0'
@@ -22,9 +22,9 @@ target 'V2exLogin' do
     pods
 end
 
-#target 'V2exLoginTests' do
-#    pods
-#end
+target 'V2exLoginTests' do
+    pods
+end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6514451D91377DEAA63039EE /* Pods_V2exLoginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C6C2EE9807F53B678629B9 /* Pods_V2exLoginTests.framework */; };
 		8A68C58DCBA1E4FE6EC46653 /* Pods_V2exLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BCAD1ED999B4B133110E69 /* Pods_V2exLogin.framework */; };
 		D63684501DA3490F00255DD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636844F1DA3490F00255DD5 /* AppDelegate.swift */; };
 		D63684521DA3490F00255DD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684511DA3490F00255DD5 /* ViewController.swift */; };
@@ -22,10 +23,14 @@
 		D63684861DA4B76400255DD5 /* V2exLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684851DA4B76300255DD5 /* V2exLoginViewController.swift */; };
 		D63684881DA4B77B00255DD5 /* V2exLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684871DA4B77B00255DD5 /* V2exLoginViewModel.swift */; };
 		D63684891DA4BFCC00255DD5 /* V2exAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684801DA3B7EC00255DD5 /* V2exAccount.swift */; };
-		D636848A1DA4C05C00255DD5 /* V2exHTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684711DA36BB800255DD5 /* V2exHTMLParser.swift */; };
 		D636848E1DA4C3A800255DD5 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D636848B1DA4C38B00255DD5 /* Locksmith.framework */; };
 		D63684901DA4C3F700255DD5 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D636848F1DA4C3F700255DD5 /* Ji.framework */; };
-		D63684911DA4C63400255DD5 /* V2exLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636847D1DA3B7E800255DD5 /* V2exLoginManager.swift */; };
+		D63684921DA4CA1300255DD5 /* V2exAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636846F1DA3656E00255DD5 /* V2exAPI.swift */; };
+		D63684931DA4CA1A00255DD5 /* V2exLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684851DA4B76300255DD5 /* V2exLoginViewController.swift */; };
+		D63684941DA4CA1D00255DD5 /* V2exLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684871DA4B77B00255DD5 /* V2exLoginViewModel.swift */; };
+		D63684951DA4CA2200255DD5 /* V2exAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684811DA3B7EC00255DD5 /* V2exAppContext.swift */; };
+		D63684961DA4CEB400255DD5 /* V2exHTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684711DA36BB800255DD5 /* V2exHTMLParser.swift */; };
+		D63684971DA4CFD800255DD5 /* V2exLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636847D1DA3B7E800255DD5 /* V2exLoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29BEF721AE0721BAEEC2EEFB /* Pods-V2exLoginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2exLoginTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-V2exLoginTests/Pods-V2exLoginTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D71012EF0DEC969BCDEF2C8 /* Pods-V2exLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2exLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2exLogin/Pods-V2exLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		C4F1E30B8710ADA7DE6A8719 /* Pods-V2exLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2exLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-V2exLogin/Pods-V2exLogin.release.xcconfig"; sourceTree = "<group>"; };
 		D636844C1DA3490F00255DD5 /* V2exLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = V2exLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,8 @@
 		D636848B1DA4C38B00255DD5 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = "../../Library/Developer/Xcode/DerivedData/V2exLogin-bagrqquivnuvuhbiqenplnvaijzg/Build/Products/Debug-iphoneos/Locksmith/Locksmith.framework"; sourceTree = "<group>"; };
 		D636848F1DA4C3F700255DD5 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = "../../Library/Developer/Xcode/DerivedData/V2exLogin-bagrqquivnuvuhbiqenplnvaijzg/Build/Products/Debug-iphoneos/Ji/Ji.framework"; sourceTree = "<group>"; };
 		E0BCAD1ED999B4B133110E69 /* Pods_V2exLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_V2exLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C6C2EE9807F53B678629B9 /* Pods_V2exLoginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_V2exLoginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6F1F559C34A8B154AF255B2 /* Pods-V2exLoginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2exLoginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2exLoginTests/Pods-V2exLoginTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			files = (
 				D63684901DA4C3F700255DD5 /* Ji.framework in Frameworks */,
 				D636848E1DA4C3A800255DD5 /* Locksmith.framework in Frameworks */,
+				6514451D91377DEAA63039EE /* Pods_V2exLoginTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +98,8 @@
 			children = (
 				7D71012EF0DEC969BCDEF2C8 /* Pods-V2exLogin.debug.xcconfig */,
 				C4F1E30B8710ADA7DE6A8719 /* Pods-V2exLogin.release.xcconfig */,
+				E6F1F559C34A8B154AF255B2 /* Pods-V2exLoginTests.debug.xcconfig */,
+				29BEF721AE0721BAEEC2EEFB /* Pods-V2exLoginTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -99,6 +110,7 @@
 				D636848F1DA4C3F700255DD5 /* Ji.framework */,
 				D636848B1DA4C38B00255DD5 /* Locksmith.framework */,
 				E0BCAD1ED999B4B133110E69 /* Pods_V2exLogin.framework */,
+				E0C6C2EE9807F53B678629B9 /* Pods_V2exLoginTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D636846C1DA3490F00255DD5 /* Build configuration list for PBXNativeTarget "V2exLoginTests" */;
 			buildPhases = (
+				A3C165FEF8BF81CFE2554D77 /* [CP] Check Pods Manifest.lock */,
 				D636845C1DA3490F00255DD5 /* Sources */,
 				D636845D1DA3490F00255DD5 /* Frameworks */,
 				D636845E1DA3490F00255DD5 /* Resources */,
+				33405474342A7AD460C80A11 /* [CP] Embed Pods Frameworks */,
+				679EF1D2E2FFDB679B2E8CAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +289,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33405474342A7AD460C80A11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-V2exLoginTests/Pods-V2exLoginTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		679EF1D2E2FFDB679B2E8CAB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-V2exLoginTests/Pods-V2exLoginTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		72E233A45AD7E51166E1CD06 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +347,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-V2exLogin/Pods-V2exLogin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3C165FEF8BF81CFE2554D77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F747AB148C71B901FF73A002 /* [CP] Check Pods Manifest.lock */ = {
@@ -343,8 +403,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63684891DA4BFCC00255DD5 /* V2exAccount.swift in Sources */,
-				D636848A1DA4C05C00255DD5 /* V2exHTMLParser.swift in Sources */,
-				D63684911DA4C63400255DD5 /* V2exLoginManager.swift in Sources */,
+				D63684951DA4CA2200255DD5 /* V2exAppContext.swift in Sources */,
+				D63684971DA4CFD800255DD5 /* V2exLoginManager.swift in Sources */,
+				D63684961DA4CEB400255DD5 /* V2exHTMLParser.swift in Sources */,
+				D63684941DA4CA1D00255DD5 /* V2exLoginViewModel.swift in Sources */,
+				D63684921DA4CA1300255DD5 /* V2exAPI.swift in Sources */,
+				D63684931DA4CA1A00255DD5 /* V2exLoginViewController.swift in Sources */,
 				D63684651DA3490F00255DD5 /* V2exLoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +566,7 @@
 		};
 		D636846D1DA3490F00255DD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F1F559C34A8B154AF255B2 /* Pods-V2exLoginTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +582,7 @@
 		};
 		D636846E1DA3490F00255DD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29BEF721AE0721BAEEC2EEFB /* Pods-V2exLoginTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
