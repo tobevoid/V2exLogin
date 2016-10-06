@@ -7,14 +7,25 @@
 //
 
 import Foundation
+fileprivate let V2exAccountUsernameKey = "V2exAccountUsernameKey"
 
 class V2exAppContext {
-    static let sharedInstance = V2exAppContext()
-    var account: V2exAccount?
+    static let shared = V2exAppContext()
+    lazy var account: V2exAccount? = {
+        return V2exAccount.readCurrentV2exAccount()
+    }()
     
     init() {
-        account = V2exAccount.readCurrentV2exAccount()
-        print(self.account)
+        HTTPCookieStorage.shared.cookieAcceptPolicy = .onlyFromMainDocumentDomain
+    }
+    
+    var currentUsername: String? {
+        get {
+            return UserDefaults.standard.value(forKeyPath: V2exAccountUsernameKey) as? String
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKeyPath: V2exAccountUsernameKey)
+        }
     }
     
     func saveAccount() {
@@ -22,6 +33,8 @@ class V2exAppContext {
     }
     
     func deleteAccount() {
+        currentUsername = nil
         account?.delete()
+        account = nil
     }
 }

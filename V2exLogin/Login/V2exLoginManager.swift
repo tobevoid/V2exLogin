@@ -13,12 +13,13 @@ import Moya
 public class V2exLoginManager {
     var account: V2exAccount?
     
+    // 到时候移到统一的分类里面去
     private func paramsWithUsername(_ username: String, password: String) -> Observable<[String : String]> {
         return V2exProvider
             .request(.LoginPre)
             .shareReplay(1)
             .flatMap{V2exHTMLParser
-                .loginInfoWithHTMLData(data: $0.data)
+                .loginInfoWithHTMLData($0.data)
                 .map({ (once, nameKey, passwordKey) in
                     return ["once" : once,
                             "next" : "/",
@@ -37,14 +38,26 @@ public class V2exLoginManager {
             }
     }
     
-    public func login() ->Observable<Response> {
+    public func login() -> Observable<Response> {
         guard let account = account else { return Observable.empty() }
+        
+        HTTPCookieStorage.removeAllCookies()
         return loginWithUsername(account.username, password: account.password)
-            .do(onNext: {
-            if $0.statusCode == 200 {
-                V2exAppContext.sharedInstance.account = account
-                V2exAppContext.sharedInstance.saveAccount()
-            }
+            .filterStatusCode(200)
+            .do(onNext: { _ in
+                V2exAppContext.shared.account = account
+                V2exAppContext.shared.saveAccount()
         })
+    }
+    
+    public func logout() {
+        HTTPCookieStorage.removeAllCookies()
+        V2exAppContext.shared.deleteAccount()
+    }
+}
+
+extension HTTPCookieStorage {
+    static func removeAllCookies() {
+        HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
     }
 }

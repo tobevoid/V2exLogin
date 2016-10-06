@@ -11,10 +11,9 @@ import RxSwift
 import RxCocoa
 import Ji
 
-public class V2exHTMLParser {
-    static func loginInfoWithHTMLData(data: Data) -> Observable<(String, String, String)> {
-        return Observable.of(data)
-            .map{Ji(htmlData: $0)}
+public class V2exHTMLParser: Ji {
+    static func loginInfoWithHTMLData(_ data: Data) -> Observable<(String, String, String)> {
+        return Observable.of(V2exHTMLParser(htmlData: data))
             .filter{$0 != nil}
             .flatMap{Observable
                 .zip($0!.onceToken, $0!.nameKey, $0!.passwordKey)
@@ -23,7 +22,7 @@ public class V2exHTMLParser {
     }
 }
 
-extension Ji {
+extension V2exHTMLParser {
     var onceToken: Observable<String> {
         return handleInputAttributesWithFilter({ $0["name"] == "once" },
                                                     valueKey: "value")
@@ -40,12 +39,18 @@ extension Ji {
     }
 }
 
-// confirm to ReactiveCompatible would cause compile error when building V2exLoginTest, but V2exLogin not. 
+extension JiNode {
+    func descendantWithName(_ name: String, attribute:String, value: String) -> JiNode? {
+        return descendantsWithName("a").filter{ $0.attributes["href"] == "/member/kyz001" }.last
+    }
+}
+
+// Confirm to ReactiveCompatible would cause compiling error when building V2exLoginTest, but V2exLogin not.
 // Having no idea about that.
 // Redundant conformance of 'Ji' to protocol 'ReactiveCompatible'
-extension Ji {
+extension V2exHTMLParser {
     func handleInputAttributesWithFilter(_ filter:([String : String]) -> Bool, valueKey: String) -> Observable<String> {
-        let descendant = self.rootNode?
+        let descendant = rootNode?
             .descendantsWithName("input")
             .map{$0.attributes}
             .filter(filter)

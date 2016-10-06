@@ -9,11 +9,11 @@
 import Foundation
 import Locksmith
 
-fileprivate let V2exAccountUsernameKey = "V2exAccountUsernameKey"
-
 struct V2exAccount: ReadableSecureStorable, CreateableSecureStorable, DeleteableSecureStorable, GenericPasswordSecureStorable{
     let username: String
     let password: String
+    
+    var member: V2exMember?
     
     let service = "V2ex"
     var account: String { return username }
@@ -37,8 +37,7 @@ extension V2exAccount: Equatable {
 
 extension V2exAccount {
     static func readCurrentV2exAccount() -> V2exAccount? {
-        let account = UserDefaults.standard.value(forKeyPath: V2exAccountUsernameKey)
-            .flatMap{ $0 as? String }
+        let account = V2exAppContext.shared.currentUsername
             .map{ ($0, V2exAccount(username: $0).readFromSecureStore()?.data?["password"])}
             .map{ V2exAccount(username: $0, password: $1 as? String ?? "") }
         
@@ -49,7 +48,7 @@ extension V2exAccount {
     func save() {
         guard password.characters.count > 0 else { return }
         
-        UserDefaults.standard.setValue(username, forKeyPath: V2exAccountUsernameKey)
+        V2exAppContext.shared.currentUsername = username
         
         do {
             try createInSecureStore()

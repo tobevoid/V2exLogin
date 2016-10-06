@@ -29,7 +29,7 @@ public enum V2ex {
     case HotTopics
     case LatestTopics
     case ShowNodes(name: String)
-    case ShowMembers(username: String?, id: String?)
+    case ShowMembers(username: String? , id: String? )
 }
 
 extension V2ex : TargetType {

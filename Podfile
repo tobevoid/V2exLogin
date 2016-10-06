@@ -12,9 +12,10 @@ def pods
     pod 'SnapKit', '~> 3.0.1'
     pod 'YYText', '~> 1.0.7'
     pod 'YYWebImage', '~> 1.0.5'
-#    pod 'Realm', '~> 2.0.1'
     pod 'MonkeyKing', '~> 1.0.0'
     pod 'FDFullscreenPopGesture', '~> 1.1'
+    pod 'ObjectMapper', '~> 2.0.0'
+    #    pod 'RealmSwift', '~> 2.0.1'
 #    pod 'Quick', '~> 0.10.0'
 end
 
