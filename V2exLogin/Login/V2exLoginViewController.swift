@@ -69,11 +69,6 @@ extension V2exLoginViewController: V2exViewModelBindable {
                 })
             .addDisposableTo(disposeBag)
         view.addGestureRecognizer(tapBackground)
-        
-        V2exProvider.fetchMemberInfo()
-            .subscribe(onNext: {
-                print($0)
-            })
     }
 
     override func viewDidLoad() {

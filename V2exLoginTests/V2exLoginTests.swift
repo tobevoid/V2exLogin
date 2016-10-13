@@ -39,6 +39,7 @@ class V2exLoginTests: XCTestCase {
         
         account.save()
         let savedAccount = V2exAccount.readCurrentV2exAccount()
+        print(savedAccount)
         XCTAssertNotNil(savedAccount)
         XCTAssertEqual(savedAccount!, account)
         
@@ -81,5 +82,14 @@ class V2exLoginTests: XCTestCase {
         XCTAssertNil(V2exAppContext.shared.account)
         XCTAssertNil(V2exAppContext.shared.currentUsername)
         XCTAssertNil(V2exAccount.readCurrentV2exAccount())
+    }
+    
+    func test_MemberAPI() {
+        let _ = V2exProvider.fetchMemberInfo()
+            .subscribe(onNext: {
+                XCTAssertNotNil($0.id)
+                XCTAssertNotNil($0.url)
+                XCTAssertNotNil($0.username)
+            })
     }
 }
