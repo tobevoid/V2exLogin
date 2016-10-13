@@ -43,7 +43,7 @@ extension V2ex : TargetType {
         case .Login:
             return "signin"
         case .Topics:
-            return "/api/topics/show.json"
+            return "api/topics/show.json"
         case .HotTopics:
             return "api/topics/hot.json"
         case .LatestTopics:
@@ -51,11 +51,11 @@ extension V2ex : TargetType {
         case .ShowNodes:
             return "api/nodes/show.json"
         case .AllNodes:
-            return "/api/nodes/all.json"
+            return "api/nodes/all.json"
         case .ShowMembers:
             return "api/members/show.json"
         case .Replies:
-            return "/api/replies/show.json"
+            return "api/replies/show.json"
         }
     }
     public var method: Moya.Method {

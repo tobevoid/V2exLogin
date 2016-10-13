@@ -100,7 +100,6 @@ class V2exLoginTests: XCTestCase {
         let _ = V2exProvider.fetchHotTopics()
             .subscribe(onNext: {
                 XCTAssertGreaterThan($0.count, 0)
-            print($0)
             }, onError: { (error) in
                 XCTAssertNil(error)
         })

@@ -14,7 +14,9 @@ extension RxMoyaProvider {
     func fetchAllNodes() -> Observable<[V2exNode]> {
         return V2exProvider.request(.AllNodes)
             .retry(1)
+            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .background))
             .mapObjectArray()
+            .observeOn(MainScheduler.instance)
             .shareReplay(1)
     }
     
