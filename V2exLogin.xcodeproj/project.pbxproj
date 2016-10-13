@@ -34,8 +34,9 @@
 		D63684991DA5477200255DD5 /* V2exMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684981DA5477200255DD5 /* V2exMember.swift */; };
 		D636849B1DA5492700255DD5 /* V2exViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636849A1DA5492700255DD5 /* V2exViewModel.swift */; };
 		D636849E1DA60E2800255DD5 /* Moya+ObjectMapper+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D636849D1DA60E2800255DD5 /* Moya+ObjectMapper+Rx.swift */; };
-		D63684A11DA643B300255DD5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684A01DA643B300255DD5 /* ActivityIndicator.swift */; };
 		D63684A31DA654FC00255DD5 /* V2exLoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63684A21DA654FC00255DD5 /* V2exLoginValidation.swift */; };
+		D686A7A31DAF7060007A5CF3 /* V2exAPI+Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686A7A21DAF7060007A5CF3 /* V2exAPI+Member.swift */; };
+		D686A7A51DAF7143007A5CF3 /* V2exAPI+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686A7A41DAF7143007A5CF3 /* V2exAPI+Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +75,9 @@
 		D63684981DA5477200255DD5 /* V2exMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = V2exMember.swift; sourceTree = "<group>"; };
 		D636849A1DA5492700255DD5 /* V2exViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = V2exViewModel.swift; sourceTree = "<group>"; };
 		D636849D1DA60E2800255DD5 /* Moya+ObjectMapper+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya+ObjectMapper+Rx.swift"; sourceTree = "<group>"; };
-		D63684A01DA643B300255DD5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D63684A21DA654FC00255DD5 /* V2exLoginValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = V2exLoginValidation.swift; sourceTree = "<group>"; };
+		D686A7A21DAF7060007A5CF3 /* V2exAPI+Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "V2exAPI+Member.swift"; sourceTree = "<group>"; };
+		D686A7A41DAF7143007A5CF3 /* V2exAPI+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "V2exAPI+Login.swift"; sourceTree = "<group>"; };
 		E0BCAD1ED999B4B133110E69 /* Pods_V2exLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_V2exLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C6C2EE9807F53B678629B9 /* Pods_V2exLoginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_V2exLoginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F1F559C34A8B154AF255B2 /* Pods-V2exLoginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2exLoginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2exLoginTests/Pods-V2exLoginTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,12 +150,13 @@
 		D636844E1DA3490F00255DD5 /* V2exLogin */ = {
 			isa = PBXGroup;
 			children = (
-				D63684A01DA643B300255DD5 /* ActivityIndicator.swift */,
 				D636847F1DA3B7EC00255DD5 /* AppContext */,
 				D636847C1DA3B7E800255DD5 /* Login */,
 				D63684711DA36BB800255DD5 /* V2exHTMLParser.swift */,
 				D636849A1DA5492700255DD5 /* V2exViewModel.swift */,
 				D636849D1DA60E2800255DD5 /* Moya+ObjectMapper+Rx.swift */,
+				D686A7A21DAF7060007A5CF3 /* V2exAPI+Member.swift */,
+				D686A7A41DAF7143007A5CF3 /* V2exAPI+Login.swift */,
 				D636846F1DA3656E00255DD5 /* V2exAPI.swift */,
 				D636844F1DA3490F00255DD5 /* AppDelegate.swift */,
 				D63684511DA3490F00255DD5 /* ViewController.swift */,
@@ -405,16 +408,17 @@
 				D63684821DA3B7EC00255DD5 /* V2exAccount.swift in Sources */,
 				D63684701DA3656E00255DD5 /* V2exAPI.swift in Sources */,
 				D63684881DA4B77B00255DD5 /* V2exLoginViewModel.swift in Sources */,
-				D63684A11DA643B300255DD5 /* ActivityIndicator.swift in Sources */,
 				D63684521DA3490F00255DD5 /* ViewController.swift in Sources */,
 				D63684831DA3B7EC00255DD5 /* V2exAppContext.swift in Sources */,
 				D63684A31DA654FC00255DD5 /* V2exLoginValidation.swift in Sources */,
 				D636847E1DA3B7E800255DD5 /* V2exLoginManager.swift in Sources */,
 				D636849E1DA60E2800255DD5 /* Moya+ObjectMapper+Rx.swift in Sources */,
 				D63684991DA5477200255DD5 /* V2exMember.swift in Sources */,
+				D686A7A51DAF7143007A5CF3 /* V2exAPI+Login.swift in Sources */,
 				D63684861DA4B76400255DD5 /* V2exLoginViewController.swift in Sources */,
 				D63684721DA36BB800255DD5 /* V2exHTMLParser.swift in Sources */,
 				D63684501DA3490F00255DD5 /* AppDelegate.swift in Sources */,
+				D686A7A31DAF7060007A5CF3 /* V2exAPI+Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

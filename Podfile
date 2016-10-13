@@ -15,7 +15,7 @@ def pods
     pod 'MonkeyKing', '~> 1.0.0'
     pod 'FDFullscreenPopGesture', '~> 1.1'
     pod 'ObjectMapper', '~> 2.0.0'
-    #    pod 'RealmSwift', '~> 2.0.1'
+    pod 'RealmSwift', '~> 2.0.1'
 #    pod 'Quick', '~> 0.10.0'
 end
 

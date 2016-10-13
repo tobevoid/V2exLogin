@@ -10,24 +10,6 @@ import Foundation
 import RxSwift
 import Moya
 
-//enum ValidationResult {
-//    case OK(message: String)
-//    case Empty
-//    case Validating
-//    case Failed(message: String)
-//}
-//
-//extension ValidationResult {
-//    var isValid: Bool {
-//        switch self {
-//        case .OK(_):
-//            return true
-//        default:
-//            return false
-//        }
-//    }
-//}
-
 class V2exLoginViewModel: V2exViewModel {
     
     let validatedUsername: Observable<Bool>
@@ -65,14 +47,6 @@ class V2exLoginViewModel: V2exViewModel {
                 return $0.0 && $0.1
             }
             .distinctUntilChanged()
-            .shareReplay(1)
-    }
-    
-    func fetchMemberInfo() -> Observable<V2exMember> {
-        return V2exProvider
-            .request(.ShowMembers(username: V2exAppContext.shared.currentUsername, id: ""))
-            .retry(1)
-            .mapObject()
             .shareReplay(1)
     }
 }
