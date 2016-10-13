@@ -26,6 +26,8 @@ class ViewController: UIViewController {
                     print($0)
             })
             .addDisposableTo(disposeBag)
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

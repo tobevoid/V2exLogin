@@ -85,11 +85,26 @@ class V2exLoginTests: XCTestCase {
     }
     
     func test_MemberAPI() {
-        let _ = V2exProvider.fetchMemberInfo()
+        let _ = V2exProvider.fetchMemberInfo("tripleCC")
             .subscribe(onNext: {
                 XCTAssertNotNil($0.id)
                 XCTAssertNotNil($0.url)
                 XCTAssertNotNil($0.username)
+                XCTAssertNotNil($0.avatar)
+                }, onError: { (error) in
+                    XCTAssertNil(error)
             })
+    }
+    
+    func test_TopicAPI() {
+        let _ = V2exProvider.fetchHotTopics()
+            .subscribe(onNext: {
+                XCTAssertGreaterThan($0.count, 0)
+            print($0)
+            }, onError: { (error) in
+                XCTAssertNil(error)
+        })
+        
+        
     }
 }

@@ -78,6 +78,22 @@ extension V2exLoginViewController: V2exViewModelBindable {
         view.addSubview(loginButton)
         layoutPageSubviews()
         bindViewModel(nil)
+        
+        V2exProvider.fetchMemberInfo("tripleCC").subscribe(onNext: {
+            print($0)
+            }, onError: {
+                print($0)
+        })
+        V2exProvider.fetchHotTopics().subscribe(onNext: {
+            print($0.first)
+            }, onError: {
+                print($0)
+        })
+        V2exProvider.fetchLatestTopics().subscribe(onNext: {
+            print($0.first)
+            }, onError: {
+                print($0)
+        })
     }
 }
 

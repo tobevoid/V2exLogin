@@ -21,4 +21,15 @@ extension ObservableType where E == Response {
                                          userInfo: ["Error" : "failed to map object"]))
         }
     }
+    
+    public func mapObjectArray<T: Mappable>() -> RxSwift.Observable<[T]> {
+        return mapJSON().flatMap { array -> Observable<[T]> in
+            if let array = array as? [Any] {
+                return Observable.just(array.flatMap { Mapper<T>().map(JSONObject: $0) })
+            }
+            return Observable.error(NSError(domain: "V2ex",
+                                            code: -1,
+                                            userInfo: ["Error" : "failed to map object array"]))
+        }
+    }
 }

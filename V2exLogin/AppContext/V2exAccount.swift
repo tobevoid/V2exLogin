@@ -41,7 +41,6 @@ extension V2exAccount {
             .map{($0, V2exAccount(username: $0).readFromSecureStore()?.data?["password"])}
             .map{ V2exAccount(username: $0.0, password: $0.1 as? String ?? "") }
         
-        print(V2exAccount(username: "tripleCC").readFromSecureStore())
         guard account?.password.characters.count != 0 else { return nil }
         return account
     }

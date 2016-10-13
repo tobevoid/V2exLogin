@@ -26,10 +26,13 @@ fileprivate func customManager() -> Manager {
 public enum V2ex {
     case LoginPre
     case Login(params: [String : String])
+    case Topics(nodeId: String?, nodeName: String?, username: String?, page: Int)
     case HotTopics
     case LatestTopics
     case ShowNodes(name: String)
+    case AllNodes
     case ShowMembers(username: String? , id: String? )
+    case Replies(topicId: String)
 }
 
 extension V2ex : TargetType {
@@ -37,16 +40,22 @@ extension V2ex : TargetType {
     public var path: String {
         switch self {
         case .LoginPre: fallthrough
-        case .Login(_):
+        case .Login:
             return "signin"
+        case .Topics:
+            return "/api/topics/show.json"
         case .HotTopics:
             return "api/topics/hot.json"
         case .LatestTopics:
             return "api/topics/latest.json"
         case .ShowNodes:
             return "api/nodes/show.json"
+        case .AllNodes:
+            return "/api/nodes/all.json"
         case .ShowMembers:
             return "api/members/show.json"
+        case .Replies:
+            return "/api/replies/show.json"
         }
     }
     public var method: Moya.Method {
@@ -64,8 +73,24 @@ extension V2ex : TargetType {
         case .ShowNodes(let name):
             return ["name" : name]
         case .ShowMembers(let username, let id):
-            return username != nil ? ["username" : username!] :
-            id != nil ? ["id" : id] : nil
+            if let username = username {
+                return ["username" : username]
+            } else if let id = id {
+                return ["id" : id]
+            }
+            return nil
+        case .Topics(let nodeId, let nodeName, let username, let page):
+            var params: [String : Any] = ["p" : page]
+            if let nodeId = nodeId {
+                params["node_id"] = nodeId
+            } else if let nodeName = nodeName {
+                params["nodeName"] = nodeName
+            } else if let username = username {
+                params["username"] = username
+            }
+            return params
+        case .Replies(let topicId):
+            return ["topic_id" : topicId]
         default:
             return nil
         }

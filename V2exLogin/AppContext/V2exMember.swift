@@ -43,22 +43,8 @@ struct V2exMember: Mappable {
         tagline     <- map["tagline"]
         bio         <- map["bio"]
         created     <- map["created"]
-        avatar      <- map
+        avatar = V2exAvatar(JSON: map.JSON)
     }
 }
 
-struct V2exAvatar: Mappable {
-    var mini: String?
-    var large: String?
-    var normal: String?
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        mini    <- map["avatar_mini"]
-        normal  <- map["avatar_normal"]
-        large   <- map["avatar_large"]
-    }
-}
+
