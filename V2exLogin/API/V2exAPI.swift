@@ -26,13 +26,14 @@ fileprivate func customManager() -> Manager {
 public enum V2ex {
     case LoginPre
     case Login(params: [String : String])
-    case Topics(nodeId: String?, nodeName: String?, username: String?, page: Int)
+    case Topics(nodeId: Int?, nodeName: String?, username: String?, page: Int)
     case HotTopics
     case LatestTopics
     case ShowNodes(name: String)
     case AllNodes
-    case ShowMembers(username: String? , id: String? )
-    case Replies(topicId: String)
+    case ShowMembers(username: String? , id: Int? )
+    case Replies(topicId: Int)
+    case Reply(topicId: Int, content: String)
 }
 
 extension V2ex : TargetType {
@@ -56,11 +57,14 @@ extension V2ex : TargetType {
             return "api/members/show.json"
         case .Replies:
             return "api/replies/show.json"
+        case .Reply(let topicId):
+            return "t/\(topicId)"
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login(_):
+        case .Login: fallthrough
+        case .Reply:
             return .POST
         default:
             return .GET
@@ -84,7 +88,7 @@ extension V2ex : TargetType {
             if let nodeId = nodeId {
                 params["node_id"] = nodeId
             } else if let nodeName = nodeName {
-                params["nodeName"] = nodeName
+                params["node_name"] = nodeName
             } else if let username = username {
                 params["username"] = username
             }

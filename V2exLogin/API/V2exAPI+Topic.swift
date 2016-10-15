@@ -13,19 +13,17 @@ import RxSwift
 extension RxMoyaProvider {
     func fetchLatestTopics() -> Observable<[V2exTopic]> {
         return V2exProvider.request(.LatestTopics)
-            .retry(1)
             .mapObjectArray()
             .shareReplay(1)
     }
     
     func fetchHotTopics() -> Observable<[V2exTopic]> {
         return V2exProvider.request(.HotTopics)
-            .retry(1)
             .mapObjectArray()
             .shareReplay(1)
     }
     
-    func fetchTopics(nodeId: String? = nil,
+    func fetchTopics(nodeId: Int? = nil,
                      nodeName: String? = nil,
                      username: String? = nil,
                      page: Int) -> Observable<[V2exTopic]> {
@@ -33,7 +31,6 @@ extension RxMoyaProvider {
                                             nodeName: nodeName,
                                             username: username,
                                             page: page))
-            .retry(1)
             .mapObjectArray()
             .shareReplay(1)
     }

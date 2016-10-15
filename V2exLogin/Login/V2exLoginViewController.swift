@@ -79,26 +79,32 @@ extension V2exLoginViewController: V2exViewModelBindable {
         layoutPageSubviews()
         bindViewModel(nil)
         
-//        V2exProvider.fetchMemberInfo("tripleCC").subscribe(onNext: {
+//        let _ = V2exProvider.fetchMemberInfo("tripleCC").subscribe(onNext: {
 //            print($0)
 //            }, onError: {
 //                print($0)
 //        })
-//        V2exProvider.fetchHotTopics().subscribe(onNext: {
+//        let _ = V2exProvider.fetchHotTopics().subscribe(onNext: {
 //            print($0.first)
 //            }, onError: {
 //                print($0)
 //        })
-//        V2exProvider.fetchLatestTopics().subscribe(onNext: {
+//        let _ = V2exProvider.fetchLatestTopics().subscribe(onNext: {
 //            print($0.first)
 //            }, onError: {
 //                print($0)
 //        })
-        V2exProvider.fetchAllNodes().subscribe(onNext: {
-            print($0)
-            }, onError: {
-                print($0)
-        })
+//        let _ = V2exProvider.fetchAllNodes().subscribe(onNext: {
+//            print($0)
+//            }, onError: {
+//                print($0)
+//        })
+//        let _ = V2exProvider.fetchRepliesWithTopicId(312422).subscribe(onNext: {
+//            print($0.first)
+//            }, onError: {
+//                print($0)
+//        })
+
     }
 }
 

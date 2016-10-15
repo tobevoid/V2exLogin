@@ -12,10 +12,9 @@ import RxSwift
 
 extension RxMoyaProvider {
     func fetchMemberInfo(_ username: String? = V2exAppContext.shared.currentUsername,
-                         _ id: String? = "") -> Observable<V2exMember> {
+                         _ id: Int? = nil) -> Observable<V2exMember> {
         return V2exProvider
             .request(.ShowMembers(username: username, id: id))
-            .retry(1)
             .mapObject()
             .shareReplay(1)
     }

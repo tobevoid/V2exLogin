@@ -11,10 +11,13 @@ import Moya
 import RxSwift
 
 extension RxMoyaProvider {
-    func fetchRepliesWithTopicId(_ topicId: String) -> Observable<[V2exReply]> {
+    func fetchRepliesWithTopicId(_ topicId: Int) -> Observable<[V2exReply]> {
         return V2exProvider.request(.Replies(topicId: topicId))
-            .retry(1)
             .mapObjectArray()
             .shareReplay(1)
     }
+    
+//    func replyWithTopicId(_ topicId: Int) -> Observable<Response> {
+//        
+//    }
 }

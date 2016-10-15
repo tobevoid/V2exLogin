@@ -13,16 +13,12 @@ import RxSwift
 extension RxMoyaProvider {
     func fetchAllNodes() -> Observable<[V2exNode]> {
         return V2exProvider.request(.AllNodes)
-            .retry(1)
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .background))
             .mapObjectArray()
-            .observeOn(MainScheduler.instance)
             .shareReplay(1)
     }
     
     func fetchShowNodesWithName(_ name: String) -> Observable<[V2exNode]> {
         return V2exProvider.request(.ShowNodes(name: name))
-            .retry(1)
             .mapObjectArray()
             .shareReplay(1)
     }
